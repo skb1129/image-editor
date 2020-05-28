@@ -2,6 +2,7 @@ const path = require("path");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const HTMLWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const DotEnv = require("dotenv-webpack");
 
 const environments = require("./environments");
 
@@ -92,5 +93,6 @@ module.exports = ({ mode, server } = { mode: MODE.DEV, server: "local" }) => ({
       filename: "css/[name].css",
       chunkFilename: "css/[id].css",
     }),
+    new DotEnv(),
   ],
 });

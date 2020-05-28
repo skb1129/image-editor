@@ -1,17 +1,17 @@
 import React, { useRef } from "react";
 import Cropper from "react-cropper";
 
-import { ImageAttributes } from "../../models";
+import { content } from "../../assets";
+import { ImageAttributes, ResizeTypes } from "../../models";
 
 import "cropperjs/dist/cropper.css";
 import "./ImageEditor.scss";
 
 interface Props {
-  title: string;
+  type: ResizeTypes;
   image: ImageAttributes;
-  size: { width: number; height: number };
 }
-function ImageEditor({ title, image, size }: Props) {
+function ImageEditor({ type, image }: Props) {
   const styles = {
     title: "image-editor__title",
     wrapper: "image-editor__wrapper",
@@ -20,7 +20,7 @@ function ImageEditor({ title, image, size }: Props) {
     previewImage: "image-editor__preview__image",
   };
   const cropper = useRef(null);
-  const id = title.replace(" ", "");
+  const { title, size } = content[type];
   return (
     <>
       <h1 className={styles.title}>{title}</h1>
@@ -34,13 +34,13 @@ function ImageEditor({ title, image, size }: Props) {
           viewMode={1}
           movable={false}
           zoomable={false}
-          preview={`#${id}`}
+          preview={`#${type}`}
           minCropBoxWidth={size.width / 2}
           minCropBoxHeight={size.height / 2}
         />
         <div className={styles.preview}>
           <h2>Preview:</h2>
-          <div id={id} className={styles.previewImage} />
+          <div id={type} className={styles.previewImage} />
         </div>
       </div>
     </>
