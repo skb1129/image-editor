@@ -1,9 +1,9 @@
 {
-  "name": "react-boilerplate",
-  "version": "1.0.1",
-  "description": "Boilerplate for React projects with minimal dependencies.",
+  "name": "image-editor",
+  "version": "1.0.0",
+  "description": "React based image editing and uploading.",
   "main": "index.tsx",
-  "repository": "https://github.com/skb1129/react-boilerplate",
+  "repository": "https://github.com/skb1129/image-editor",
   "author": "Surya Kant Bansal <suryakantbansal97@gmail.com>",
   "license": "MIT",
   "private": false,

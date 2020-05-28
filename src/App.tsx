@@ -1,26 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
+
+import ImageUpload from "./components/image-upload/ImageUpload";
+import { ImageAttributes } from "./models";
 
 import "./App.scss";
 
 function App() {
   const styles = {
     wrapper: "app__wrapper",
-    header: "app__header",
-    logo: "app__logo",
-    text: "app__text",
-    link: "app__link",
+    main: "app__main",
+    image: "app__image",
   };
+  const [image, setImage] = useState<ImageAttributes>(null);
   return (
     <div data-testid="app" className={styles.wrapper}>
-      <header className={styles.header}>
-        <img src="/react.png" className={styles.logo} alt="React logo." />
-        <p className={styles.text}>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a className={styles.link} href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
-          Learn React
-        </a>
-      </header>
+      <div className={styles.main}>
+        {!image && <ImageUpload setImage={setImage} />}
+        {image && <img className={styles.image} src={image.src} alt={image.name} />}
+      </div>
     </div>
   );
 }

@@ -80,7 +80,7 @@ module.exports = ({ mode, server } = { mode: MODE.DEV, server: "local" }) => ({
   plugins: [
     new CleanWebpackPlugin({ verbose: true }),
     new HTMLWebpackPlugin({
-      title: "React Application",
+      title: "Image Editor",
       filename: "index.html",
       template: "public/index.html",
       favicon: "public/favicon.ico",
