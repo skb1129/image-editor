@@ -1,6 +1,9 @@
 @import "../../styles/colors";
 
 .image-upload {
+  &__wrapper {
+    margin: 2rem;
+  }
   &__error {
     font-size: 1.6rem;
     color: $red;

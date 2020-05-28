@@ -9,6 +9,7 @@ interface Props {
 }
 function ImageUpload({ setImage }: Props) {
   const styles = {
+    wrapper: "image-upload__wrapper",
     error: "image-upload__error",
   };
   const [error, setError] = useState<string>("");
@@ -34,10 +35,10 @@ function ImageUpload({ setImage }: Props) {
   );
 
   return (
-    <>
+    <div className={styles.wrapper}>
       <input type="file" onChange={handleChange} accept="image/png, image/jpeg" />
       {error && <p className={styles.error}>{error}</p>}
-    </>
+    </div>
   );
 }
 
