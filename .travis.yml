@@ -2,6 +2,13 @@ language: node_js
 node_js:
   - 12
 cache: yarn
+before_install:
+  - openssl aes-256-cbc -K $encrypted_3c84dcdc6bbe_key -iv $encrypted_3c84dcdc6bbe_iv
+  - in .env.enc -out .env -d
 script:
   - yarn test
   - yarn build
+deploy:
+  provider: firebase
+  token:
+    secure: irZDRoUa8KLLy50hFbcn0kWJBgNXhk4TsiDPp2PXv8r1PuDiVEy/29jZIto029XpBQ7AjqgF9WaAj31y0AaFbRre7ZJwYVb286yYI3G6V0BNRK7zij+EVapteMOEnxqem0zcxn1tfNe2dkentEXVY2apJ/iMoHlyCzTm6GkN2eMLzPj6kEET60t1+6KETwLmrQEBwAgksPtRuyKPTiPj7Z3HG7ZLDCLC5jYqWPApefkZ6z8TWtr+tPgACAdJ9Ys3WowrCrcDPsBKAic42gVfcj81+pws8TcD/ZQi+8RmAFUF44iLFc+TTOVQkKWH2HYIZjB+jry1wvzbphK15A2ZE45o0FTLf73es72DRvE46zJkRMHJADKgE6CD/eJRB7H9LOBFlxsf5m8xFJsBpBAIYQzlnWVrrslRjBKzczKyp/y7JEuz+wYOAoJQYvqYT2YG99ktaW9wsGTpE8vrHrVqkV62K9Y1whPfNr2pzFI9TLgkq+F5ycufoQzs+Ph8WnaqpA4/cBatEoPp5Ro3uz2M9TgtEptVCEtfC5RXsrSJYRfP0Tf+OdBB2Spb04lMSE68CGVq4RLNfMUkoYd25cpOE5cV/y/I3voGekP+DF6yYEMRkMIezCe1MqJi25F9iGQyXcMJxUYoFm7qZmajMgjJT75TfrFe210W5sWZarArKJw=
