@@ -31,13 +31,17 @@ function ImageUpload({ setImage }: Props) {
         return false;
       };
     },
-    [setImage]
+    [setImage, setError]
   );
 
   return (
-    <div className={styles.wrapper}>
-      <input type="file" onChange={handleChange} accept="image/png, image/jpeg" />
-      {error && <p className={styles.error}>{error}</p>}
+    <div data-testid="image-upload" className={styles.wrapper}>
+      <input data-testid="image-upload-input" type="file" onChange={handleChange} accept="image/png, image/jpeg" />
+      {error && (
+        <p data-testid="image-upload-error" className={styles.error}>
+          {error}
+        </p>
+      )}
     </div>
   );
 }
